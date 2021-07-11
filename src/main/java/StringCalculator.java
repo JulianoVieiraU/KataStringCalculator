@@ -8,6 +8,9 @@ public class StringCalculator {
                 for (String value : valuesSplited) {
                     sum += Double.parseDouble(value);
                 }
+
+                if(sum %((int)sum) == 0) return Integer.toString((int)sum);
+
                 return Double.toString(Math.round(sum * 100.0) / 100.0);
             }
 
