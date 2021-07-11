@@ -29,4 +29,10 @@ public class StringCalculatorTest {
     public void testNewLineAsSeparator(){
         assertEquals("6", calculator.add("1\n2,3"));
     }
+
+    @Test
+    public void testNewLineAsSeparatorInvalid(){
+        assertEquals("Number expected but '\\n' found at position 6.",
+                calculator.add("175.2,\n35"));
+    }
 }
