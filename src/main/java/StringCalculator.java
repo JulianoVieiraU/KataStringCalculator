@@ -3,7 +3,7 @@ public class StringCalculator {
     public String add(String values){
         if(!values.isEmpty()) {
             if(values.contains(",")) {
-                String[] valuesSplited = values.split(",");
+                String[] valuesSplited = values.split(",|\n");
                 double sum = 0.0;
                 for (String value : valuesSplited) {
                     sum += Double.parseDouble(value);
