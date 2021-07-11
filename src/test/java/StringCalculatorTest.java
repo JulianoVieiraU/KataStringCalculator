@@ -17,6 +17,6 @@ public class StringCalculatorTest {
 
     @Test
     public void testSumOfValues(){
-        assertEquals("6", calculator.add("1,2,3"));
+        assertEquals("3.3", calculator.add("1.1,2.2"));
     }
 }
