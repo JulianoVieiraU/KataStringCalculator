@@ -12,6 +12,8 @@ public class StringCalculator {
     }
 
     private String execute(String values){
+        if(values.endsWith(",")) return "Number expected but EOF found.";
+        
         if(containsInvalidSeparator(values)){
             Matcher matches_1 = Pattern.compile(",\n").matcher(values);
 
