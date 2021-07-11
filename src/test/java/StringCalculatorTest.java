@@ -9,4 +9,9 @@ public class StringCalculatorTest {
     public void testStringIsEmpty(){
         assertEquals("0", calculator.add(""));
     }
+
+    @Test
+    public void testStringUnicValue(){
+        assertEquals("1", calculator.add("1"));
+    }
 }
