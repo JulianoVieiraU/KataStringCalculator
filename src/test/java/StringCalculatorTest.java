@@ -14,4 +14,9 @@ public class StringCalculatorTest {
     public void testStringUnicValue(){
         assertEquals("1", calculator.add("1"));
     }
+
+    @Test
+    public void testSumOfValues(){
+        assertEquals("6", calculator.add("1,2,3"));
+    }
 }
