@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 
     public String add(String values){
@@ -10,7 +13,20 @@ public class StringCalculator {
 
     private String execute(String values){
         if(containsInvalidSeparator(values)){
-            return "Number expected but '\\n' found at position 6.";
+            Matcher matches_1 = Pattern.compile(",\n").matcher(values);
+
+            if(matches_1.find()){
+                String pos = Integer.toString(matches_1.start()+1);
+                return "Number expected but '\\n' found at position "+pos+".";
+            }
+
+            Matcher matches_2 = Pattern.compile("\n,").matcher(values);
+
+            if(matches_2.find()){
+                String pos = Integer.toString(matches_2.start()+1);
+                return "Number expected but '\\n' found at position "+pos+".";
+            }
+
         }
 
         if(containsSeparator(values)) {
