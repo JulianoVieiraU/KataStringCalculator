@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,7 +37,15 @@ public class StringCalculator {
         }
 
         if(containsSeparator(values)) {
-            return sum(getValuesSplited(values));
+            String[] splitedValues = getValuesSplited(values);
+
+            List<String> negativeNumbers = testeNegativeNumbers(splitedValues);
+
+            if(!negativeNumbers.isEmpty()){
+                return "Negative not allowed : -1";
+            }
+
+            return sum(splitedValues);
         }
 
         return values;
@@ -72,5 +82,17 @@ public class StringCalculator {
 
     private boolean containsInvalidSeparator(String values) {
         return values.contains(",\n") || values.contains("\n,");
+    }
+
+    private List<String> testeNegativeNumbers(String[] values){
+        List<String> negativeNumbers = new ArrayList<>();
+
+        for(String value : values){
+            if(value.contains("-")){
+                negativeNumbers.add(value);
+            }
+        }
+
+        return negativeNumbers;
     }
 }

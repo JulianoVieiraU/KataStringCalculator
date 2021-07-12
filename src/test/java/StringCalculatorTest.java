@@ -48,6 +48,6 @@ public class StringCalculatorTest {
 
     @Test
     public void testNegativeNumbers(){
-        assertEquals("-1", calculator.add("-1,2"));
+        assertEquals("Negative not allowed : -1", calculator.add("-1,2"));
     }
 }
