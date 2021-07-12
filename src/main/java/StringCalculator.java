@@ -43,7 +43,12 @@ public class StringCalculator {
 
     private String[] getValuesSplited(String values){
         if(values.startsWith("//")){
-            return new String[]{"1", "2"};
+            Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher((values));
+            if(matcher.matches()){
+                String delimiter = matcher.group(1);
+                String toSplit = matcher.group(2);
+                return toSplit.split(delimiter);
+            }
         }
 
         return values.split(",|\n");
