@@ -49,5 +49,6 @@ public class StringCalculatorTest {
     @Test
     public void testNegativeNumbers(){
         assertEquals("Negative not allowed : -1", calculator.add("-1,2"));
+        assertEquals("Negative not allowed : -4, -5", calculator.add("2,-4,-5"));
     }
 }

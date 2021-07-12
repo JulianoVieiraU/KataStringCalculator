@@ -42,7 +42,16 @@ public class StringCalculator {
             List<String> negativeNumbers = testeNegativeNumbers(splitedValues);
 
             if(!negativeNumbers.isEmpty()){
-                return "Negative not allowed : -1";
+                String response = "Negative not allowed : ";
+                for(String negativeNumber : negativeNumbers){
+                    if(response.equals("Negative not allowed : ")){
+                        response+= negativeNumber;
+                    }else{
+                        response+= ", "+negativeNumber;
+                    }
+                }
+
+                return response;
             }
 
             return sum(splitedValues);
