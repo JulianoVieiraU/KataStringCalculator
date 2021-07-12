@@ -45,4 +45,9 @@ public class StringCalculatorTest {
     public void testCustomSeparators(){
         assertEquals("3", calculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void testNegativeNumbers(){
+        assertEquals("-1", calculator.add("-1,2"));
+    }
 }
