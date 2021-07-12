@@ -5,15 +5,19 @@ public class StringCalculator {
 
     public String add(String values){
         if(!values.isEmpty()) {
+            if(missingLastPosition(values)) return "Number expected but EOF found.";
+
             return execute(values);
         }
 
         return "0";
     }
 
+    private boolean missingLastPosition(String values){
+        return values.endsWith(",");
+    }
+
     private String execute(String values){
-        if(values.endsWith(",")) return "Number expected but EOF found.";
-        
         if(containsInvalidSeparator(values)){
             Matcher matches_1 = Pattern.compile(",\n").matcher(values);
 
@@ -28,7 +32,6 @@ public class StringCalculator {
                 String pos = Integer.toString(matches_2.start()+1);
                 return "Number expected but '\\n' found at position "+pos+".";
             }
-
         }
 
         if(containsSeparator(values)) {

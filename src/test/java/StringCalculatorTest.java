@@ -40,4 +40,9 @@ public class StringCalculatorTest {
     public void testMissingNumberInLastPosition(){
         assertEquals("Number expected but EOF found.", calculator.add("1,2,"));
     }
+
+    @Test
+    public void testCustomSeparators(){
+        assertEquals("3", calculator.add("//;\n1;2"));
+    }
 }
